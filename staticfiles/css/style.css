@@ -1,0 +1,76 @@
+html {
+    height: 100%;
+    }
+    body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0px !important;
+    overflow-x: hidden;
+    font-family: 'Bookman_Old_Style', sans-serif !important;
+    }
+    .footer {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+body.modal-open {
+    overflow: visible;
+}
+
+#call-button {
+  animation: wiggle 2s;
+  animation-delay: 3s;
+}
+
+#image-card:hover {
+  transform: scale(1.03);
+  transition: transform 350ms;
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235F4173'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+/* Змінюємо колір стрілки, коли акордеон ВІДКРИТИЙ */
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235F4173'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+@keyframes change {
+  0% { transform: scale(0.93); }
+  100% { transform: scale(1); }
+}
+
+@keyframes change2 {
+    0% { transform: scale(1); }
+    15% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+#image-card { animation: change 1s;}
+
+.hero-banner {
+    background-image: url('../images/Gemini_Generated_Image_nuhpacnuhpacnuhp.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.callback-location { animation: change2 1s;}
+
+@font-face {
+    font-family: 'Bookman_Old_Style'; /* Give your font a name */
+    src: url('../fonts/Bookman_Old_Style_Regular.ttf') format('truetype'); /* Relative path from the CSS file */
+    font-weight: normal;
+    font-style: normal;
+}
+
+#icons:hover {
+  transform: scale(1.08);
+  z-index: 1;
+  transition: transform 250ms;
+}

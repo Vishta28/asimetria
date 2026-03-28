@@ -1,0 +1,29 @@
+{% extends 'main/main.html' %}
+
+{% block title %}
+Головна сторінка
+{% endblock %}
+
+{% block content %}
+
+<div>
+    {% load static %}<img src="{% static 'images/110x25.jpg' %}" style="width: 100%; width: calc(100% + 30px); margin-left: -15px; margin-right: -15px; max-width: none;">
+</div>
+<div class="container-fluid mt-2">
+    <div class="row p-1">
+        {% for category in categories %}
+        <div class="col-6 col-md-4 mt-4">
+            <a href="{% url 'gallery_page' slug=category.slug %}" class="text-decoration-none">
+                <div id="image-card" class="card rounded-4">
+                    <img src="{{category.main_photo.url}}" class="card-img-top rounded-3" alt="..." style="object-fit: cover;">
+                    <div class="card-body bg-light opacity-75">
+                        <h5 class="card-title text-center fs-6 fw-semibold">{{category.title}}</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'main/main.html' %}
+
+{% block title %}
+Галерея
+{% endblock %}
+
+{% block content %}
+
+<p>{{ category }}</p>
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/" style="color: #5F4173">Головна</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Галерея</li>
+        </ol>
+    </nav>
+    <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-lg-down" role="document">
+              <div class="modal-content bg-dark bg-opacity-75">
+                  <div id="img-detail" class="modal-body d-flex align-items-center justify-content-center"></div>
+              </div>
+        </div>
+    </div>
+    <div class="row">
+        {% for items in context.images %}
+        <a href="{% url 'gallery_image_detail' items.image.url|slice:'1:' items.description|default:'no-description' %}"
+           id="image-card"
+            class="card border-0 col-4 mt-3"
+            hx-get="{% url 'gallery_image_detail' items.image.url|slice:'1:' items.description|default:'no-description' %}"
+            hx-target="#img-detail"
+            hx-trigger="click"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+            <img src="{{ items.image.url }}" class="card-img-top rounded-3" alt="..." style="height: 100%">
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
