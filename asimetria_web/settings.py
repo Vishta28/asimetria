@@ -79,12 +79,15 @@ TEMPLATES = [
 WSGI_APPLICATION = 'asimetria_web.wsgi.application'
 
 
-
-DB_LIVE = os.getenv('DB_LIVE')
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if DB_LIVE in ['False', False]:
+DB_LIVE = os.getenv('DB_LIVE', 'False')  # default 'False'
+
+# Преобразуємо рядок у bool
+DB_LIVE = DB_LIVE.lower() in ['true', '1', 'yes']
+
+if not DB_LIVE:
 
     DATABASES = {
         'default': {
