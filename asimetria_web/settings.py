@@ -28,7 +28,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.0.211', '127.0.0.1', '192.168.31.27', '192.168.0.103', 'asimetria-production.up.railway.app']
+ALLOWED_HOSTS = ['asimetria-production.up.railway.app']
 
 
 # Application definition
