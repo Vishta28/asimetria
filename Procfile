@@ -1,1 +1,1 @@
-web: gunicorn asimetria_web.wsgi:application --bind 0.0.0.0:$PORT --log-file -
+web: gunicorn asimetria_web.wsgi --bind 0.0.0.0:$PORT --log-file - --error-logfile -
