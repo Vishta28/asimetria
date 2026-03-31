@@ -19,6 +19,7 @@ def gallery_page(request, slug):
 	return render(request, 'main/gallery.html', {'context': context})
 
 def gallery_image_detail(request, image_url, description):
+	print(image_url)
 	context = {
 		'image_url': image_url,
 		'description': description
