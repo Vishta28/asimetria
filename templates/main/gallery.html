@@ -26,7 +26,7 @@
         {% for items in context.images %}
         <a href="{% url 'gallery_image_detail' items.image.url|slice:'1:' items.description|default:'no-description' %}"
            id="image-card"
-            class="card border-0 col-4 mt-3" style="max-height: 90vh;"
+            class="card border-0 col-4 mt-3"
             hx-get="{% url 'gallery_image_detail' items.image.url|slice:'1:' items.description|default:'no-description' %}"
             hx-target="#img-detail"
             hx-trigger="click"
