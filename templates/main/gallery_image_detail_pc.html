@@ -1,0 +1,29 @@
+<div id="carouselExample" class="carousel slide" data-bs-interval="false" data-bs-touch="true">
+    <div class="carousel-inner">
+        {% for image in images %}
+        <div class="carousel-item {% if forloop.counter0 == current_index %}active{% endif %}">
+            <div class="row g-4 align-items-center"> <div class="col-7">
+                    <div class="d-flex justify-content-center align-items-center bg-transparent" style="max-height: 85vh;">
+                        <img src="{{ image.image.url }}" class="img-fluid rounded-3" style="max-height: 85vh; object-fit: contain;">
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    {% if image.description %}
+                    <div class="p-1" id="image-description">
+                        <div class="p-2 bg-black">
+                            <span class="text-white fs-6">
+                                {{ image.description }}
+                            </span>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="text-secondary text-center italic">Опис відсутній</div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

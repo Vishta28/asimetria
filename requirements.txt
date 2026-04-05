@@ -6,6 +6,7 @@ dj-database-url==3.1.2
 Django==4.2.3
 django-cloudinary-storage==0.3.0
 django-extensions==4.1
+django-user-agents==0.4.0
 gunicorn==25.3.0
 idna==3.11
 packaging==26.0
@@ -13,10 +14,15 @@ pillow==12.1.1
 psycopg2-binary==2.9.11
 python-dotenv==1.2.2
 pytils==0.4.4
+pytz==2026.1.post1
 requests==2.33.0
 six==1.17.0
 sqlparse==0.5.5
 typing_extensions==4.15.0
 tzdata==2025.3
+ua-parser==1.0.1
+ua-parser-builtins==202603
 urllib3==2.6.3
+user-agents==2.2.0
+user_agent==0.1.14
 whitenoise==6.12.0

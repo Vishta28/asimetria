@@ -1,32 +1,43 @@
-<div class="row bg-dark rounded-2">
-    <div class="col-12 d-flex justify-content-center">
-        <button type="button"
-            class="btn-close brn-xl btn-close-white position-absolute top-0 end-0 m-3"
-            style="width: 2rem; height: 2rem; background-size: 2rem;"
-            data-bs-dismiss="modal"
-            aria-label="Close">
-        </button>
-            <img
-                src="{{ context.image_url }}"
-                class="img-fluid p-2 rounded-4"
-                style="object-fit: contain; max-height: 95vh;">
-    </div>
-    <div class="col-12 bg-dark">
-        <div class="accordion accordion-flush p-2" id="accordionFlushExample">
-            <div class="accordion-item border-0">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed text-white bg-dark fs-6 text-small text-center border-0 border-bottom border-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Детальніше...
-                    </button>
-                </h2>
-            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body bg-dark">
-                    <span class="text-white mt-2 px-3 text-center fs-6">
-                        {{ context.description }}
-                    </span>
+<div class="row rounded-2 position-relative">
+    <div class="col-12">
+
+        <div id="carouselExample" class="carousel slide" data-bs-interwal="false" data-bs-touch="true">
+            <div class="carousel-inner">
+
+                {% for image in images %}
+                <div class="carousel-item {% if forloop.counter0 == current_index %}active{% endif %}">
+
+                    <div class="d-flex justify-content-center align-items-center" style="object-fit: contain; max-height: 85vh;">
+                        <img src="{{ image.image.url }}" id="detail-image" class="carousel-img rounded-3">
+                    </div>
+
+
+                    <div class="accordion accordion-flush p-2 mt-3" id="accordion">
+                        <div class="accordion-item border-0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed text-white bg-black fs-6 text-small text-center border-0 border-bottom border-secondary border-2" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Детальніше...
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                                <div class="accordion-body bg-black">
+                                    <span class="text-white mt-2 px-3 text-center fs-6">
+                                        {{ image.description }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+                {% endfor %}
+
             </div>
         </div>
     </div>
 </div>
+
+<!--<img-->
+<!--                src="{{ context.image_url }}"-->
+<!--                class="img-fluid p-2 rounded-4"-->
+<!--                style="object-fit: contain; max-height: 95vh;">-->
