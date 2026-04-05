@@ -74,3 +74,32 @@ body.modal-open {
   z-index: 1;
   transition: transform 250ms;
 }
+
+* {box-sizing: border-box;}
+
+.modal-body {           /* не виходить за висоту вікна */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item {
+  text-align: center;
+}
+
+#detail-image {
+  max-width: 100%;            /* не виходить за ширину modal */
+  max-height: 100vh;           /* не виходить за висоту modal */
+  height: auto;               /* зберігає пропорції */
+  width: auto;                /* зберігає пропорції */
+  object-fit: contain;        /* масштабування без обрізання */
+  margin: 0 auto;
+}
+
+#accordion{
+  animation: fadeIn2 2s;
+  }
+
+#image-description{
+  animation: fadeIn2 2s;
+  }

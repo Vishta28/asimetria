@@ -49,10 +49,10 @@
     </div>
     <div class="row">
         {% for items in context.images %}
-        <a href="{% url 'gallery_image_detail' items.id %}"
+        <a href="{% url 'gallery_image_detail' items.id items.category.slug %}"
            id="image-card"
             class="card border-0 col-4 mt-3"
-            hx-get="{% url 'gallery_image_detail' items.id %}"
+            hx-get="{% url 'gallery_image_detail' items.id items.category.slug %}"
             hx-target="#img-detail"
             hx-trigger="click"
             data-bs-toggle="modal"

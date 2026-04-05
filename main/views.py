@@ -16,12 +16,13 @@ def gallery_page(request, slug):
 	images = category.image_set.all()
 	context = {
 		'category': category,
-		'images': images
+		'images': images,
+		'category_slug': category.slug
 	}
 	return render(request, 'main/gallery.html', {'context': context})
 
-def gallery_image_detail(request, id):
-	images = Image.objects.all().order_by('id')
+def gallery_image_detail(request, id, slug):
+	images = Image.objects.filter(category__slug=slug).order_by('id')
 	current = Image.objects.get(id=id)
 
 	image_list = list(images)
